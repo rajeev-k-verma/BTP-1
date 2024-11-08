@@ -117,6 +117,6 @@ st.markdown("""
     <div style='text-align: center;'>
         <p>Developed by <strong>Rajeev Kumar Verma</strong> with 💖 from 🇮🇳</p>
         <p>Follow me on <a href='https://github.com/rajeev-k-verma' target='_blank'>GitHub</a> |
-        <a href='https://www.linkedin.com/in/rajeev-verma' target='_blank'>LinkedIn</a></p>
+        <a href='https://www.linkedin.com/in/rajeev-k-verma' target='_blank'>LinkedIn</a></p>
     </div>
     """, unsafe_allow_html=True)
