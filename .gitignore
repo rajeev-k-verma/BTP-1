@@ -3,8 +3,6 @@
 __pycache__/
 env/
 .venv/
-*.pkl
-
 # Streamlit and FastAPI
 .DS_Store
 *.log
