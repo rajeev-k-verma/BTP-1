@@ -1,0 +1,18 @@
+# Python
+*.pyc
+__pycache__/
+env/
+.venv/
+*.pkl
+
+# Streamlit and FastAPI
+.DS_Store
+*.log
+*.sqlite3
+
+# System files
+Thumbs.db
+*.bak
+*.swp
+*.swo
+
