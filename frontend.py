@@ -54,11 +54,14 @@ input_data = {
     'PO': st.number_input('PO', value=201)
 }
 
+# Fetch backend URL from environment variable (this should be set on Streamlit Cloud)
+BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+
 if prediction_type == 'Predict with M_NAME':
     input_data['M_NAME'] = st.selectbox('M_NAME', ['K-X09086', 'FLX40HP', 'HD614', 'B5500'])
-    endpoint = 'http://localhost:8000/predict_with_mname'
+    endpoint = f'{BACKEND_URL}/predict_with_mname'
 else:
-    endpoint = 'http://localhost:8000/find_optimal_mname'
+    endpoint = f'{BACKEND_URL}/find_optimal_mname'
 
 # Button to trigger prediction
 if st.button('Predict'):
