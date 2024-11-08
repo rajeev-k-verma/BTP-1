@@ -14,7 +14,6 @@ This project explores the use of machine learning to predict material permeabili
 - `app.py`: FastAPI backend for model predictions.
 - `frontend.py`: Streamlit frontend for user input and visualization.
 - `reports/`: Contains training graphs and profiling reports.
-- `models/`: Pre-trained models and other supporting files.
 - `requirements.txt`: List of required Python libraries.
 
 ## Models Evaluated
