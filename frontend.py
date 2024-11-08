@@ -55,7 +55,7 @@ input_data = {
 }
 
 # Fetch backend URL from environment variable (this should be set on Streamlit Cloud)
-BACKEND_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+BACKEND_URL = backend_url = st.secrets["BACKEND_URL"]
 
 if prediction_type == 'Predict with M_NAME':
     input_data['M_NAME'] = st.selectbox('M_NAME', ['K-X09086', 'FLX40HP', 'HD614', 'B5500'])
