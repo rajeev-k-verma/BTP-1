@@ -117,7 +117,7 @@ st.markdown("""
     <div style='text-align: center;'>
         <p>Created with <span style="color: #FF5733;">💡</span> by <strong>Rajeev Kumar Verma</strong> from the heart of <span style="color: #FFC300;">🇮🇳</span></p>
         <p>Connect with me on <a href='https://github.com/rajeev-k-verma' target='_blank'>GitHub</a> | 
-        <a href='https://www.linkedin.com/in/rajeev-verma' target='_blank'>LinkedIn</a></p>
+        <a href='https://www.linkedin.com/in/rajeev-k-verma' target='_blank'>LinkedIn</a></p>
     </div>
     """, unsafe_allow_html=True)
 
