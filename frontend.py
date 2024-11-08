@@ -84,16 +84,29 @@ if st.button('Predict'):
 # Button to display pandas profiling report in the main area
 if st.button('Show Profiling Report'):
     with st.spinner('Loading profiling report...'):
-        profiling_html_url = 'https://raw.githubusercontent.com/yourusername/project-assets/main/profiling_report.html'
+        profiling_html_url = 'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/ydata_profiling_report.html'
         profiling_html = requests.get(profiling_html_url).text
         st.components.v1.html(profiling_html, height=800, scrolling=True)
 
 # Button to show training graphs in the main area
 if st.button('Show Training Graphs'):
     graph_urls = [
-        'https://raw.githubusercontent.com/yourusername/project-assets/main/graph1.png',
-        'https://raw.githubusercontent.com/yourusername/project-assets/main/graph2.png',
-        # Add more URLs as needed
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Actual%20vs%20Predicted%20for%20MC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Actual%20vs%20Predicted%20for%20PER_FIT.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Actual%20vs%20Predicted%20for%20PR_NCC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Distribution%20of%20residuals%20for%20MC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Distribution%20of%20residuals%20for%20PER_FIT.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Distribution%20of%20residuals%20for%20PR_NCC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Feature%20importance%20for%20MC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Feature%20importance%20for%20PER_FIT.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Feature%20importance%20for%20PR_NCC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Learning%20curve%20for%20MC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Learning%20curve%20for%20PER_FIT.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Learning%20curve%20for%20PR_NCC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Residual%20plot%20for%20MC.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Residual%20plot%20for%20PER_FIT.png',
+        'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Residual%20plot%20for%20PR_NCC.png'
+
     ]
     for url in graph_urls:
         st.image(url, use_column_width=True)
