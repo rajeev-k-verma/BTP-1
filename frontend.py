@@ -82,7 +82,7 @@ if st.button('Predict'):
             st.error("Error: Unable to get predictions. Please try again.")
 
 # Button to display pandas profiling report in the main area
-if st.button('Show Profiling Report'):
+if st.button('Show Training Data Profiling Report'):
     with st.spinner('Loading profiling report...'):
         profiling_html_url = 'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/ydata_profiling_report.html'
         profiling_html = requests.get(profiling_html_url).text
