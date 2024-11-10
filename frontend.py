@@ -61,6 +61,8 @@ with col2:
                 st.write(f"**Permeation Rate (PR_NCC)**: {round(predictions.get('PR_NCC', 'N/A'), 2)} NCC/h/L")
                 st.write(f"**Permeability (PER_FIT)**: {predictions.get('PER_FIT', 'N/A'):.2e} mol H₂/m²/s/Pa")
                 st.balloons()
+            elif response.status_code == 404: 
+                st.error("No optimal material found that meets the constraints.")
             else:
                 st.error("Error: Unable to get predictions. Please try again.")
 
