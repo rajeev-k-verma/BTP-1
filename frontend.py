@@ -38,8 +38,7 @@ with col1:
     }
 
     # Fetch backend URL from environment variable (this should be set on Streamlit Cloud)
-    # BACKEND_URL = st.secrets["BACKEND_URL"]
-    BACKEND_URL = "http://127.0.0.1:8000"
+    BACKEND_URL = st.secrets["BACKEND_URL"]
 
     if prediction_type == 'Find Optimal M_NAME':
         endpoint = f'{BACKEND_URL}/find_optimal_mname'
