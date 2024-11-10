@@ -58,7 +58,7 @@ with col2:
                 st.write(f"**Material Name (M_NAME)**: {predictions.get('M_NAME', 'N/A')}")
                 st.write(f"**Material Cost (MC)**: {round(predictions.get('MC', 'N/A'), 2)} INR")
                 st.write(f"**Permeation Rate (PR_NCC)**: {round(predictions.get('PR_NCC', 'N/A'), 2)} NCC/h/L")
-                st.write(f"**Permeability (PER_FIT)**: {round(predictions.get('PER_FIT', 'N/A'), 2)} mol H₂/m²/s/Pa")
+                st.write(f"**Permeability (PER_FIT)**: {predictions.get('PER_FIT', 'N/A')} mol H₂/m²/s/Pa")
                 st.balloons()
             else:
                 st.error("Error: Unable to get predictions. Please try again.")
