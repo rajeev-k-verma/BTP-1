@@ -33,18 +33,17 @@ with col1:
         'LD': st.number_input('Length to Diameter Ratio (LD)', value=2),
         'DI': st.number_input('Internal Diameter (DI)', value=91.3913),
         'TL': st.number_input('Thickness (TL)', value=5),
-        'SA_D': st.number_input('Surface Area of Dome (SA_D)', value=32296.1653),
-        'SA_CYL': st.number_input('Surface Area of Cylinder (SA_CYL)', value=29110.8648),
+        'L_CYL': st.number_input('Length of Cylinder (L_CYL)', value=29110.8648),
         'PO': st.number_input('Operating Pressure (PO)', value=201)
     }
 
     # Fetch backend URL from environment variable (this should be set on Streamlit Cloud)
-    BACKEND_URL = backend_url = st.secrets["BACKEND_URL"]
+    BACKEND_URL = st.secrets["BACKEND_URL"]
 
     if prediction_type == 'Find Optimal M_NAME':
         endpoint = f'{BACKEND_URL}/find_optimal_mname'
     else:
-        input_data['M_NAME'] = st.selectbox('Material Name (M_NAME)', ['K-X09086', 'FLX40HP', 'HD614', 'B5500'])
+        input_data['M_NAME'] = st.selectbox('Material Name (M_NAME)', ['PA1B', 'PA2R', 'HD2R', 'HD1B', 'HD1C'])
         endpoint = f'{BACKEND_URL}/predict_with_mname'
 
 # Output section
