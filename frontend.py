@@ -38,7 +38,9 @@ with col1:
     }
 
     # Fetch backend URL from environment variable (this should be set on Streamlit Cloud)
-    BACKEND_URL = st.secrets["BACKEND_URL"]
+    # BACKEND_URL = st.secrets["BACKEND_URL"]
+    BACKEND_URL = "http://127.0.0.1:8000"
+
     if prediction_type == 'Find Optimal M_NAME':
         endpoint = f'{BACKEND_URL}/find_optimal_mname'
     else:
@@ -58,7 +60,7 @@ with col2:
                 st.write(f"**Material Name (M_NAME)**: {predictions.get('M_NAME', 'N/A')}")
                 st.write(f"**Material Cost (MC)**: {round(predictions.get('MC', 'N/A'), 2)} INR")
                 st.write(f"**Permeation Rate (PR_NCC)**: {round(predictions.get('PR_NCC', 'N/A'), 2)} NCC/h/L")
-                st.write(f"**Permeability (PER_FIT)**: {predictions.get('PER_FIT', 'N/A')} mol H₂/m²/s/Pa")
+                st.write(f"**Permeability (PER_FIT)**: {predictions.get('PER_FIT', 'N/A'):.2e} mol H₂/m²/s/Pa")
                 st.balloons()
             else:
                 st.error("Error: Unable to get predictions. Please try again.")
@@ -89,15 +91,3 @@ if st.button('Show Training Graphs'):
         'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Residual%20plot%20for%20PER_FIT.png',
         'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Residual%20plot%20for%20PR_NCC.png'
     ]
-    for url in graph_urls:
-        st.image(url, use_container_width=True)
-
-# Footer
-st.markdown("""
-    ---
-    <div style='text-align: center;'>
-        <p>Created with <span style="color: #FF5733;">💡</span> by <strong>Rajeev Kumar Verma</strong> from <span style="color: #FFC300;">🇮🇳</span></p>
-        <p>Connect with me on <a href='https://github.com/rajeev-k-verma' target='_blank'>GitHub</a> |
-        <a href='https://www.linkedin.com/in/rajeev-k-verma' target='_blank'>LinkedIn</a></p>
-    </div>
-    """, unsafe_allow_html=True)
