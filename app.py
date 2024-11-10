@@ -15,8 +15,7 @@ class InputData(BaseModel):
     LD: float
     DI: float
     TL: float
-    SA_D: float
-    SA_CYL: float
+    L_CYL: float
     PO: float
     M_NAME: str = None
 
@@ -32,7 +31,7 @@ def predict_with_mname(data: InputData):
         raise HTTPException(status_code=400, detail="M_NAME must be provided")
 
     input_data = data.dict()
-    numerical_features = ['C', 'LD', 'DI', 'TL', 'SA_D', 'SA_CYL', 'PO']
+    numerical_features = ['C', 'LD', 'DI', 'TL', 'L_CYL', 'PO']
     input_df = pd.DataFrame([input_data])
     input_df[numerical_features] = scaler.transform(input_df[numerical_features])
     input_df = encoder.transform(input_df)
@@ -53,8 +52,8 @@ def predict_with_mname(data: InputData):
 @app.post("/find_optimal_mname", response_model=Predictions)
 def find_optimal_mname(data: InputData):
     input_data = data.dict()
-    numerical_features = ['C', 'LD', 'DI', 'TL', 'SA_D', 'SA_CYL', 'PO']
-    materials = ['K-X09086', 'FLX40HP', 'HD614', 'B5500']
+    numerical_features = ['C', 'LD', 'DI', 'TL', 'L_CYL', 'PO']
+    materials = ['PA1B', 'PA2R', 'HD2R', 'HD1B', 'HD1C']
 
     optimal_material = None
     min_mc = float('inf')
