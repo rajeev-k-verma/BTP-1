@@ -29,12 +29,12 @@ with col1:
 
     st.subheader('Input Features')
     input_data = {
-        'C': st.number_input('Capacity (C)', value=1),
+        'C': st.number_input('Capacity (C in L)', value=1),
         'LD': st.number_input('Length to Diameter Ratio (LD)', value=2),
-        'DI': st.number_input('Internal Diameter (DI)', value=91.3913),
-        'TL': st.number_input('Thickness (TL)', value=5),
-        'L_CYL': st.number_input('Length of Cylinder (L_CYL)', value=29110.8648),
-        'PO': st.number_input('Operating Pressure (PO)', value=201)
+        'DI': st.number_input('Internal Diameter (DI in mm)', value=91.3913),
+        'TL': st.number_input('Thickness (TL in mm)', value=5),
+        'L_CYL': st.number_input('Length of Cylinder (L_CYL in mm)', value=29110.8648),
+        'PO': st.number_input('Operating Pressure (PO in bar)', value=201)
     }
 
     # Fetch backend URL from environment variable (this should be set on Streamlit Cloud)
