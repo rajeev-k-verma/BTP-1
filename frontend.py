@@ -25,15 +25,15 @@ col1, col2 = st.columns(2)
 # Input section
 with col1:
     st.markdown("<h2 style='font-size:24px;'>Select Prediction Type</h2>", unsafe_allow_html=True)
-    prediction_type = st.radio('', ['Predict with M_NAME', 'Find Optimal M_NAME'], index=1)
+    prediction_type = st.radio('', ['Predict with Material', 'Find Optimal Material'], index=1)
 
     st.subheader('Input Features')
     input_data = {
         'C': st.number_input('Capacity (C)', value=1),
         'LD': st.number_input('Length to Diameter Ratio (LD)', value=2),
         'DI': st.number_input('Internal Diameter (DI)', value=91.3913),
-        'TL': st.number_input('Thickness (TL)', value=5),
         'L_CYL': st.number_input('Length of Cylinder (L_CYL)', value=29110.8648),
+        'TL': st.number_input('Thickness (TL)', value=5),
         'PO': st.number_input('Operating Pressure (PO)', value=201)
     }
 
