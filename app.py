@@ -71,6 +71,7 @@ def find_optimal_mname(data: InputData):
 
         print(f"Evaluating material: {material}, MC: {mc_pred}, PR_NCC: {pr_ncc_pred}, PER_FIT: {per_fit_pred}")
 
+        # Corrected condition to ensure pr_ncc_pred < 6
         if pr_ncc_pred < 6:
             if mc_pred < min_mc:
                 min_mc = mc_pred
