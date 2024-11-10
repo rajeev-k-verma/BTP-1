@@ -25,27 +25,25 @@ col1, col2 = st.columns(2)
 # Input section
 with col1:
     st.markdown("<h2 style='font-size:24px;'>Select Prediction Type</h2>", unsafe_allow_html=True)
-    prediction_type = st.radio('', ['Find Optimal Material', 'Predict with Material'], index=0)
+    prediction_type = st.radio('', ['Predict with M_NAME', 'Find Optimal M_NAME'], index=1)
 
     st.subheader('Input Features')
     input_data = {
-        'C': st.number_input('Capacity (C in L)', value=1),
+        'C': st.number_input('Capacity (C)', value=1),
         'LD': st.number_input('Length to Diameter Ratio (LD)', value=2),
-        'DI': st.number_input('Internal Diameter (DI in mm)', value=91.3913),
-        'L_CYL': st.number_input('Length of Cylinder (L_CYL in mm)', value=29110.8648),
-        'TL': st.number_input('Thickness (TL in mm)', value=5),
-        'PO': st.number_input('Operating Pressure (PO in bar)', value=201)
+        'DI': st.number_input('Internal Diameter (DI)', value=91.3913),
+        'TL': st.number_input('Thickness (TL)', value=5),
+        'L_CYL': st.number_input('Length of Cylinder (L_CYL)', value=29110.8648),
+        'PO': st.number_input('Operating Pressure (PO)', value=201)
     }
 
     # Fetch backend URL from environment variable (this should be set on Streamlit Cloud)
     BACKEND_URL = st.secrets["BACKEND_URL"]
-
-    if prediction_type == 'Find Optimal Material':
+    if prediction_type == 'Find Optimal M_NAME':
         endpoint = f'{BACKEND_URL}/find_optimal_mname'
     else:
         input_data['M_NAME'] = st.selectbox('Material Name (M_NAME)', ['PA1B', 'PA2R', 'HD2R', 'HD1B', 'HD1C'])
         endpoint = f'{BACKEND_URL}/predict_with_mname'
-        
 
 # Output section
 with col2:
@@ -56,13 +54,12 @@ with col2:
             if response.status_code == 200:
                 predictions = response.json()
                 st.success("Predictions received successfully!")
+                st.write("### Predictions")
                 st.write(f"**Material Name (M_NAME)**: {predictions.get('M_NAME', 'N/A')}")
-                st.write(f"**Material Cost (MC)**: {predictions.get('MC', 'N/A')} INR")
-                st.write(f"**Permeation Rate (PR_NCC)**: {predictions.get('PR_NCC', 'N/A')} NCC/h/L")
-                st.write(f"**Permeability (PER_FIT)**: {predictions.get('PER_FIT', 'N/A')} mol H₂/m²/s/Pa")
+                st.write(f"**Material Cost (MC)**: {round(predictions.get('MC', 'N/A'), 2)} INR")
+                st.write(f"**Permeation Rate (PR_NCC)**: {round(predictions.get('PR_NCC', 'N/A'), 2)} NCC/h/L")
+                st.write(f"**Permeability (PER_FIT)**: {round(predictions.get('PER_FIT', 'N/A'), 2)} mol H₂/m²/s/Pa")
                 st.balloons()
-            elif response.status_code == 404:
-                st.error("No optimal material found that meets the constraints.")
             else:
                 st.error("Error: Unable to get predictions. Please try again.")
 
@@ -93,7 +90,7 @@ if st.button('Show Training Graphs'):
         'https://raw.githubusercontent.com/rajeev-k-verma/BTP-1/refs/heads/main/reports/Residual%20plot%20for%20PR_NCC.png'
     ]
     for url in graph_urls:
-        st.image(url, use_column_width=True)
+        st.image(url, use_container_width=True)
 
 # Footer
 st.markdown("""
